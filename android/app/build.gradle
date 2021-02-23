@@ -52,6 +52,32 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    flavorDimensions "flavor-type"
+
+    productFlavors{
+        prod {
+            dimension "flavor-type"
+            applicationId "com.ibernel.base_proyect"
+            versionCode flutterVersionCode.toInteger()
+            versionName flutterVersionName
+            manifestPlaceholders = [appName: "base_proyect"]
+        }
+        dev {
+            dimension "flavor-type"
+            applicationIdSuffix ".dev"
+            versionCode flutterVersionCode.toInteger()
+            versionNameSuffix "-dev"
+            manifestPlaceholders = [appName: "[DEV] base_proyect"]
+        }     
+        tst {
+            dimension "flavor-type"
+            applicationIdSuffix ".tst"
+            versionCode flutterVersionCode.toInteger()
+            versionNameSuffix "-tst"
+            manifestPlaceholders = [appName: "[TST] base_proyect"]
+        }  
+    }
 }
 
 flutter {
@@ -60,4 +86,5 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.android.support:multidex:1.0.3'
 }

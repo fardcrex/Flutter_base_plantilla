@@ -1,24 +1,17 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
-
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
+class HomePage extends StatelessWidget {
+  final String titlePage;
+  const HomePage({Key key, this.titlePage}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter Init Config'),
+        title: Text(titlePage),
       ),
       backgroundColor: Theme.of(context).primaryColor,
       body: Center(
-        child: Container(
-          child: Text('Hello World'),
-        ),
+        child: Text(titlePage),
       ),
     );
   }

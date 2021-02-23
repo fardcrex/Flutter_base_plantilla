@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 
 import 'app/home_page.dart';
+import 'injection.dart';
 
-Future<void> main() async {
+Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  FlavorConfig(name: 'Prod', variables: {});
-
-  await configureInjection();
+  await configureInjection(const Env.prod());
 
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  final hola = 33;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,7 +20,9 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       title: 'Flutter Simple Config',
-      home: HomePage(),
+      home: const HomePage(
+        titlePage: 'Flavor Production',
+      ),
     );
   }
 }

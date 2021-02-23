@@ -38,7 +38,7 @@
             "name": "Flutter Dev Release",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "debug",
+            "flutterMode": "release",
             "program": "lib/main_dev.dart",
             "args": [
                 "--flavor",
@@ -54,6 +54,17 @@
             "args": [
                 "--flavor",
                 "dev"
+            ]
+        },
+        {
+            "name": "Flutter Prod Debug",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "program": "lib/main.dart",
+            "args": [
+                "--flavor",
+                "prod"
             ]
         },
         {

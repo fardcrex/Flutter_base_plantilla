@@ -63,6 +63,20 @@ flutter_icons:
 flutter pub run flutter_launcher_icons:main
 ```
 
+### Notification icon de la App
+
+#### configurar el archivo android\app\src\main\AndroidManifest.xml
+
+```xml
+ <application
+        android:name="io.flutter.app.FlutterApplication"
+        android:label="El_nombre_de_la_app"
+         android:icon="@mipmap/ic_launcher">
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/ic_notification" />
+```
+
 ### Splash screen
 
 #### ruta del archivo 'android\app\src\main\res\drawable\launch_background.xml'
@@ -73,7 +87,7 @@ flutter pub run flutter_launcher_icons:main
 <?xml version="1.0" encoding="utf-8"?>
 
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@color/colorbg" />
+   <item android:drawable="@drawable/bg_color" />
 
     <!-- You can insert your own image assets here -->
     <item>
@@ -90,12 +104,21 @@ flutter pub run flutter_launcher_icons:main
 
 ```
 
+#### background Color in android\app\src\main\res\drawable\bg_color.xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/primary" />
+</shape>
+```
+
 #### background Color in android\app\src\main\res\values\colors.xml
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorbg">#EAF2FF</color>
+    <color name="primary">#EAF2FF</color>
 </resources>
 ```
 

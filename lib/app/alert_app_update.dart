@@ -106,7 +106,7 @@ class _AlertAppUpdateState extends State<AlertAppUpdate> {
 
   Stream<ApkDocModel> get streamApk => instance
           .collection(_collectionName)
-          .orderBy(ApkDocModel.fieldTimeName, descending: true)
+           .where(ApkDocModel.fieldCodeName, isEqualTo: versionCodeApp)
           .limit(1)
           .snapshots()
           .map((event) {
@@ -322,27 +322,25 @@ class _AlertAppUpdateState extends State<AlertAppUpdate> {
   }
 
   get bottomLeft => isDownloadingApk
-      ? FlatButton(
+      ? _getFlatButton(
           onPressed: () => task.cancel(),
-          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Text("Cancel "),
-            Icon(Icons.block, color: red, size: 20),
-          ]),
+          colorIcon: red,
+          icon: Icons.block,
+          text: "Cancel ",
         )
       : stateVersion == StateVersion.newVersionAvailable || stateVersion == StateVersion.downloadFailed
-          ? FlatButton(
+          ? _getFlatButton(
               onPressed: () => _showToast('Descargue la nueva versión antes'),
-              child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Text("Share ", style: TextStyle(color: grey)),
-                Icon(Icons.share, color: grey, size: 20),
-              ]),
+              colorIcon: grey,
+              icon: Icons.share,
+              colorText: grey,
+              text: "Share ",
             )
-          : FlatButton(
+          : _getFlatButton(
               onPressed: () => shareFile(),
-              child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Text("Share "),
-                Icon(Icons.share, color: primary, size: 20),
-              ]),
+              colorIcon: primary,
+              icon: Icons.share,
+              text: "Share ",
             );
 
   _showToast(String message) {

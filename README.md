@@ -8,6 +8,7 @@ A new Flutter project.
 flutter create --org.organizacion nombre_proyecto
 ```
 
+
 ## Packages
 
 ### Dependencias
@@ -309,3 +310,7 @@ configuración simple launch.json example
 ### Android Studio
 
 [Check this article for android Studio Setup](https://cogitas.net/creating-flavors-of-a-flutter-app/)
+
+### Recursos generator Studio
+
+[como generar assets](https://github.com/CaiJingLong/flutter_resource_generator/)
